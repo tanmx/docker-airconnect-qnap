@@ -5,9 +5,6 @@ case $ARCH_VAR in
   x86-64)
     echo "Proceeding with x86-64 arch"
     ;;
-  x86-64-static)
-    echo "Proceeding with x86-64 arch"
-    ;;
   aarch64)
     echo "Proceeding with aarch64 arch"
     ;;
@@ -21,10 +18,4 @@ case $ARCH_VAR in
 esac
 
 # Grab latest versions of the app
-wget -O /bin/airupnp-$ARCH_VAR http://pic.sunmite.com/AirConnect/airupnp-$ARCH_VAR && chmod +x /bin/air*
-
-# Insert runtime commands if users has entered them as environment variables
-[ -z "$AIRUPNP_VAR" ] && sed -i 's;command=/bin/airupnp-x86-64 -l 1000:2000;command=/bin/airupnp-'"$ARCH_VAR"' -l 1000:2000;' /etc/supervisord.conf || sed -i 's;command=/bin/airupnp-x86-64 -l 1000:2000;command=/bin/airupnp-'"$ARCH_VAR $AIRUPNP_VAR"';' /etc/supervisord.conf
-
-# Adjusting process names in supervisord
-[ "$ARCH_VAR" != "x86-64" ] && sed -i 's;process_name = airupnp-x86-64;process_name = airupnp-'"$ARCH_VAR"';' /etc/supervisord.conf
+wget -O /bin/airupnp-x86-64-static http://pic.sunmite.com/AirConnect/airupnp-x86-64-static && chmod +x /bin/airupnp-x86-64-static
