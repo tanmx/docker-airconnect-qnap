@@ -1,6 +1,6 @@
 FROM lsiobase/ubuntu:bionic
 
-ENV ARCH_VAR=x86-64-static
+ENV ARCH_VAR=x86-64
 
 # Add Supervisor
 RUN apt-get update && apt-get install -y \
