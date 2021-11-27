@@ -18,5 +18,5 @@ case $ARCH_VAR in
 esac
 
 # Grab latest versions of the app
-/bin/wget -O /bin/airupnp-x86-64-static http://pic.sunmite.com/AirConnect/airupnp-x86-64-static
-/bin/chmod +x /bin/airupnp-x86-64-static
+wget -O /bin/airupnp-x86-64-static http://pic.sunmite.com/AirConnect/airupnp-x86-64-static
+chmod +x /bin/airupnp-x86-64-static
